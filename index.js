@@ -26,15 +26,15 @@ import cors from "cors";
 const PORT = 4500 || process.env.PORT;
 const app = express();
 app.use(cors()); //cors is used for inter communication between url  Cross-Origin Resource Sharing (CORS)
-app.get("/", (req, res) => {
-  res.send("Real TIme server");
-});
+
 const users = [{}];
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   /* options */
 });
-
+app.get("/", (req, res) => {
+  res.send("Real TIme server");
+});
 
 io.on("connection", (socket) => {
   console.log("Connection established");
